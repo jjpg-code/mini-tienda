@@ -2,15 +2,17 @@ import logo from "./assets/images/github.png";
 
 type HeaderProps = {
     cartCount: number;
+    onLogoClick: () => void;
 }
 
-function Header({cartCount}: HeaderProps) {
+function Header({cartCount, onLogoClick}: HeaderProps) {
     return (
         <header className="header">
             <div className="logo-wrapper">
-                <a href="/">
-                    <img className="logo" src={logo} alt="Logo web" />
-                </a>
+                <button className="logo-btn" onClick={onLogoClick}>
+                    <img className="logo-img" src={logo} alt="" />
+                    Mini-tienda React
+                </button>
             </div>
             <div className="search-wrapper">
                 <input type="text" className="search" />
@@ -26,6 +28,6 @@ function Header({cartCount}: HeaderProps) {
 
 export default function App() {
     return (
-        <Header cartCount={13}/>
+        <Header cartCount={13} onLogoClick={() => console.log('test')}/>
     );
 }
