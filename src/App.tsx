@@ -1,11 +1,11 @@
-import logo from "./assets/images/github.png";
+import logo from './assets/images/github.png'
 
 type HeaderProps = {
-    cartCount: number;
-    onLogoClick: () => void;
+    cartCount: number
+    onLogoClick: () => void
 }
 
-function Header({cartCount, onLogoClick}: HeaderProps) {
+function Header({ cartCount, onLogoClick }: HeaderProps) {
     return (
         <header className="header">
             <div className="logo-wrapper">
@@ -27,7 +27,5 @@ function Header({cartCount, onLogoClick}: HeaderProps) {
 }
 
 export default function App() {
-    return (
-        <Header cartCount={13} onLogoClick={() => console.log('test')}/>
-    );
+    return <Header cartCount={13} onLogoClick={() => console.log('test')} />
 }
