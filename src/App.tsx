@@ -5,6 +5,10 @@ type HeaderProps = {
     onLogoClick: () => void
 }
 
+type FooterProps = {
+    onLogoClick: () => void
+}
+
 function Header({ cartCount, onLogoClick }: HeaderProps) {
     return (
         <header className="header">
@@ -26,7 +30,7 @@ function Header({ cartCount, onLogoClick }: HeaderProps) {
     )
 }
 
-function Footer({ onLogoClick }: HeaderProps) {
+function Footer({ onLogoClick }: FooterProps) {
     const year = new Date().getFullYear()
 
     return (
