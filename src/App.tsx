@@ -14,6 +14,10 @@ type ProductCardProps = {
     product: Product
 }
 
+type ProductListProps = {
+    products: Product[]
+}
+
 function Header({ cartCount, onLogoClick }: HeaderProps) {
     return (
         <header className="header">
@@ -79,11 +83,24 @@ function ProductCard({ product }: ProductCardProps) {
     )
 }
 
+function ProductList({ products }: ProductListProps) {
+    const listProducts = products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+    ))
+
+    return (
+        <div className="product-list-wrapper">
+            <h1>Category products</h1>
+            <div className="product-list">{listProducts}</div>
+        </div>
+    )
+}
+
 export default function App() {
     return (
         <>
             <Header cartCount={13} onLogoClick={() => console.log('test')} />
-            <ProductCard product={products[0]} />
+            <ProductList products={products} />
             <Footer onLogoClick={() => console.log('test')} />
         </>
     )
