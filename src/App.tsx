@@ -1,4 +1,5 @@
 import logo from './assets/images/github.png'
+import { products, type Product } from './data/products.ts'
 
 type HeaderProps = {
     cartCount: number
@@ -7,6 +8,10 @@ type HeaderProps = {
 
 type FooterProps = {
     onLogoClick: () => void
+}
+
+type ProductCardProps = {
+    product: Product
 }
 
 function Header({ cartCount, onLogoClick }: HeaderProps) {
@@ -59,11 +64,26 @@ function Footer({ onLogoClick }: FooterProps) {
     )
 }
 
+function ProductCard({ product }: ProductCardProps) {
+    return (
+        <article className="product-card">
+            <div className="image-wrapper">
+                <img className="product-img" src={logo} alt="" />
+            </div>
+            <div className="body-wrapper">
+                <p className="category">{product.category}</p>
+                <h2 className="product-name">{product.name}</h2>
+                <p className="price">{product.price} €</p>
+            </div>
+        </article>
+    )
+}
+
 export default function App() {
     return (
         <>
             <Header cartCount={13} onLogoClick={() => console.log('test')} />
-
+            <ProductCard product={products[0]} />
             <Footer onLogoClick={() => console.log('test')} />
         </>
     )
