@@ -47,7 +47,7 @@ function Footer({ onLogoClick }: FooterProps) {
                     Mini-tienda React
                 </button>
 
-                <p>Copyright {year}</p>
+                <p>© {year} Mini-tienda React</p>
             </div>
             <div className="right-column">
                 <p>Lorem ipsum</p>
