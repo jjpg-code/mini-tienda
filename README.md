@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# Mini Tienda
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small grocery shop built with React and TypeScript, as a practice project to learn React fundamentals.
 
-Currently, two official plugins are available:
+> 🚧 **Work in progress.** See the [roadmap](#roadmap) for what's done and what's next.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<!-- TODO: add a screenshot, e.g. ![Mini Tienda product list](docs/screenshot.png) -->
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Product list rendered from local data, with one reusable card per product
+- Header with the shop logo and a cart counter
+- Footer that stays at the bottom of the page, with the current year calculated automatically
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- ESLint and Prettier
 
-```js
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
+No router, state manager or UI library: only React. There's no backend either; the product data lives in [`src/data/products.ts`](src/data/products.ts).
 
-            // Remove tseslint.configs.recommended and replace with this
-            tseslint.configs.recommendedTypeChecked,
-            // Alternatively, use this for stricter rules
-            tseslint.configs.strictTypeChecked,
-            // Optionally, add this for stylistic rules
-            tseslint.configs.stylisticTypeChecked,
+## Getting started
 
-            // Other configs...
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-])
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 20.19+ or 22.12+
+
+### Installation
+
+```bash
+git clone https://github.com/jjpg-code/mini-tienda.git
+cd mini-tienda
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Then open the URL shown in the terminal (usually http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-            // Enable lint rules for React
-            reactX.configs['recommended-typescript'],
-            // Enable lint rules for React DOM
-            reactDom.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-])
-```
+| Command           | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start the development server             |
+| `npm run build`   | Type-check and build for production      |
+| `npm run preview` | Preview the production build locally     |
+| `npm run lint`    | Run ESLint                               |
+| `npm run format`  | Format the code with Prettier            |
+
+## What I learned
+
+- **Components and typed props:** each component describes the props it receives with a TypeScript type.
+- **Callback props:** child components don't change the app's state themselves. They call a function that the parent passes down (for example, `onLogoClick`).
+- **Rendering lists:** turning an array of data into UI with `.map()`, and using a stable, unique `key` (the product `id`, never the array index).
+- **Type inference:** once a prop is typed, TypeScript works out the types inside `.map()` on its own.
+- **Semantic HTML and accessibility:** buttons for actions, links for navigation, `<article>` for cards, and an empty `alt` for decorative images.
+
+## Roadmap
+
+- [x] Header and footer
+- [x] Product list
+- [ ] Product detail view
+- [ ] Cart: add products, change quantities and remove lines
+- [ ] Cart total and item count, calculated from the cart
+- [ ] Bonus: search by name, filter by category, and keep the cart after a page reload
