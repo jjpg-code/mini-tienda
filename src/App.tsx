@@ -90,7 +90,7 @@ function ProductList({ products }: ProductListProps) {
 
     return (
         <div className="product-list-wrapper">
-            <h1>Category products</h1>
+            <h1>Products</h1>
             <div className="product-list">{listProducts}</div>
         </div>
     )
