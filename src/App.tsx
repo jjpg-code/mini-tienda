@@ -1,5 +1,6 @@
 import logo from './assets/images/github.png'
-import { products, type Product } from './data/products.ts'
+import { products } from './features/products/data/products.ts'
+import { type Product } from './features/products/types.ts'
 import { Header } from './components/layout/Header/Header.tsx'
 import { Footer } from './components/layout/Footer/Footer.tsx'
 
