@@ -1,30 +1,10 @@
-import logo from './assets/images/github.png'
 import { products } from './features/products/data/products.ts'
 import { type Product } from './features/products/types.ts'
 import { Header } from './components/layout/Header/Header.tsx'
 import { Footer } from './components/layout/Footer/Footer.tsx'
 
-type ProductCardProps = {
-    product: Product
-}
-
 type ProductListProps = {
     products: Product[]
-}
-
-function ProductCard({ product }: ProductCardProps) {
-    return (
-        <article className="product-card">
-            <div className="image-wrapper">
-                <img className="product-img" src={logo} alt="" />
-            </div>
-            <div className="body-wrapper">
-                <p className="category">{product.category}</p>
-                <h2 className="product-name">{product.name}</h2>
-                <p className="price">{product.price} €</p>
-            </div>
-        </article>
-    )
 }
 
 function ProductList({ products }: ProductListProps) {
