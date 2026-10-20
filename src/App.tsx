@@ -1,12 +1,9 @@
 import logo from './assets/images/github.png'
 import { products, type Product } from './data/products.ts'
+import { Footer } from './components/layout/Footer/Footer.tsx'
 
 type HeaderProps = {
     cartCount: number
-    onLogoClick: () => void
-}
-
-type FooterProps = {
     onLogoClick: () => void
 }
 
@@ -36,35 +33,6 @@ function Header({ cartCount, onLogoClick }: HeaderProps) {
                 </div>
             </div>
         </header>
-    )
-}
-
-function Footer({ onLogoClick }: FooterProps) {
-    const year = new Date().getFullYear()
-
-    return (
-        <footer className="footer">
-            <div className="left-column">
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-            </div>
-            <div className="center-column">
-                <button className="logo-btn" onClick={onLogoClick}>
-                    <img className="logo-img" src={logo} alt="" />
-                    Mini-tienda React
-                </button>
-
-                <p>© {year} Mini-tienda React</p>
-            </div>
-            <div className="right-column">
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-                <p>Lorem ipsum</p>
-            </div>
-        </footer>
     )
 }
 
