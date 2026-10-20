@@ -1,5 +1,7 @@
 import logo from '../../../assets/images/github.png'
 
+import './Footer.css'
+
 type FooterProps = {
     onLogoClick: () => void
 }
