@@ -1,6 +1,6 @@
 import logo from '../../../assets/images/github.png'
 
-import './Header.css';
+import './Header.css'
 
 type HeaderProps = {
     cartCount: number
