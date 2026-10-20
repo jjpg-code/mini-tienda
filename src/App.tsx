@@ -1,11 +1,7 @@
 import logo from './assets/images/github.png'
 import { products, type Product } from './data/products.ts'
+import { Header } from './components/layout/Header/Header.tsx'
 import { Footer } from './components/layout/Footer/Footer.tsx'
-
-type HeaderProps = {
-    cartCount: number
-    onLogoClick: () => void
-}
 
 type ProductCardProps = {
     product: Product
@@ -13,27 +9,6 @@ type ProductCardProps = {
 
 type ProductListProps = {
     products: Product[]
-}
-
-function Header({ cartCount, onLogoClick }: HeaderProps) {
-    return (
-        <header className="header">
-            <div className="logo-wrapper">
-                <button className="logo-btn" onClick={onLogoClick}>
-                    <img className="logo-img" src={logo} alt="" />
-                    Mini-tienda React
-                </button>
-            </div>
-            <div className="search-wrapper">
-                <input type="text" className="search" />
-            </div>
-            <div className="cart-wrapper">
-                <div className="cart">
-                    Cart ( <span>{cartCount}</span> )
-                </div>
-            </div>
-        </header>
-    )
 }
 
 function ProductCard({ product }: ProductCardProps) {
