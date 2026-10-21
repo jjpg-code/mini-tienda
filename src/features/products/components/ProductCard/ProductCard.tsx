@@ -1,4 +1,4 @@
-import logo from '../../../../assets/images/github.png'
+import logo from '@/assets/images/github.png'
 import { type Product } from '../../types'
 
 import './ProductCard.css'

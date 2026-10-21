@@ -1,4 +1,4 @@
-import logo from '../../../assets/images/github.png'
+import logo from '@/assets/images/github.png'
 
 import './Header.css'
 
