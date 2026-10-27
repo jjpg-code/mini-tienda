@@ -12,6 +12,7 @@
         border: none;
         color: #495057;
         cursor: pointer;
+        padding: 0;
     }
 
     .logo-img {
