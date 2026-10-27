@@ -13,7 +13,7 @@ export default function App() {
 
     const productToShow = products.find((item) => item.id === selectedProductId)
 
-    function handleGoToList () {
+    function handleGoToList() {
         setSelectedProductId(null)
     }
 
@@ -23,12 +23,12 @@ export default function App() {
 
     return (
         <>
-            <Header cartCount={13} onLogoClick={handleGoToList } />
+            <Header cartCount={13} onLogoClick={handleGoToList} />
 
             {productToShow ? (
                 <ProductDetail
                     product={productToShow}
-                    onBackClick={handleGoToList }
+                    onBackClick={handleGoToList}
                 />
             ) : (
                 <ProductList
@@ -37,7 +37,7 @@ export default function App() {
                 />
             )}
 
-            <Footer onLogoClick={handleGoToList } />
+            <Footer onLogoClick={handleGoToList} />
         </>
     )
 }
