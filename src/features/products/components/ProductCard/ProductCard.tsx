@@ -16,9 +16,9 @@ export function ProductCard({ product, onProductClick }: ProductCardProps) {
             </div>
             <div className="body-wrapper">
                 <p className="category">{product.category}</p>
-                <button className="product-name" onClick={onProductClick}>
-                    {product.name}
-                </button>
+                <h2 className="product-name">
+                    <button onClick={onProductClick}>{product.name}</button>
+                </h2>
                 <p className="price">{product.price} €</p>
             </div>
         </article>
