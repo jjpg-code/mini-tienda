@@ -5,9 +5,10 @@ import './ProductCard.css'
 
 type ProductCardProps = {
     product: Product
+    onProductClick: () => void
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onProductClick }: ProductCardProps) {
     return (
         <article className="product-card">
             <div className="image-wrapper">
@@ -15,7 +16,9 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <div className="body-wrapper">
                 <p className="category">{product.category}</p>
-                <h2 className="product-name">{product.name}</h2>
+                <button className="product-name" onClick={onProductClick}>
+                    {product.name}
+                </button>
                 <p className="price">{product.price} €</p>
             </div>
         </article>

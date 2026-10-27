@@ -5,11 +5,16 @@ import './ProductList.css'
 
 type ProductListProps = {
     products: Product[]
+    onProductClick: (id: string) => void
 }
 
-export function ProductList({ products }: ProductListProps) {
+export function ProductList({ products, onProductClick }: ProductListProps) {
     const listProducts = products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+            key={product.id}
+            product={product}
+            onProductClick={() => onProductClick(product.id)}
+        />
     ))
 
     return (
